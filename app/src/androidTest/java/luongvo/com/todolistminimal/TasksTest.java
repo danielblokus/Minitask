@@ -2,13 +2,10 @@ package luongvo.com.todolistminimal;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import luongvo.com.todolistminimal.Pages.Home;
-
 import static luongvo.com.todolistminimal.Pages.AddTask.TASK_NAME;
 import static luongvo.com.todolistminimal.Utils.CustomAssertions.shouldDisplayNewTaskInTheList;
 
@@ -20,10 +17,12 @@ import static luongvo.com.todolistminimal.Utils.CustomAssertions.shouldDisplayNe
 public class TasksTest {
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+//    TODO  bypass firebase database for UI tests
 
     @Test
     public void createDefaultTask_ShouldDisplayHomeView() {
         new Home().navigateToAddTask().addTask();
+
         shouldDisplayNewTaskInTheList(TASK_NAME);
     }
 }
