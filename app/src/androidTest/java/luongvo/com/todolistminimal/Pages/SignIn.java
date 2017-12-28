@@ -30,11 +30,14 @@ import static org.hamcrest.Matchers.is;
 
 public class SignIn {
 
+    public static final String VALID_EMAIL = "daniel.blokus@gmail.com";
+    public static final String VALID_PASSWORD = "kaszanka1";
+
     public SignIn() {
         // TODO
     }
 
-    public Home withCredentials() throws InterruptedException {
+    public Home withCredentials(String email, String password) throws InterruptedException {
         tapSignInWithEmailButton();
         waitFor(500);
         onView(
@@ -44,7 +47,7 @@ public class SignIn {
                                         withId(R.id.email_layout),
                                         0),
                                 0),
-                        isDisplayed())).perform(replaceText("daniel.blokus@gmail.com"), closeSoftKeyboard());
+                        isDisplayed())).perform(replaceText(email), closeSoftKeyboard());
         waitFor(500);
         ViewInteraction appCompatButton = onView(
                 allOf(withId(R.id.button_next), withText("Next"),
@@ -65,7 +68,7 @@ public class SignIn {
                                         0),
                                 0),
                         isDisplayed()))
-                .perform(replaceText("kaszanka1"), closeSoftKeyboard());
+                .perform(replaceText(password), closeSoftKeyboard());
 
         waitFor(800);
         onView(

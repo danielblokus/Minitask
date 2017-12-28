@@ -8,6 +8,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import luongvo.com.todolistminimal.Pages.Home;
 import luongvo.com.todolistminimal.Pages.SignIn;
+
+import static luongvo.com.todolistminimal.Pages.SignIn.VALID_EMAIL;
+import static luongvo.com.todolistminimal.Pages.SignIn.VALID_PASSWORD;
 import static luongvo.com.todolistminimal.Utils.Delay.waitFor;
 
 /**
@@ -28,9 +31,8 @@ public class SignInTest {
     @Test
     public void successfulWithEmail() throws InterruptedException {
         waitFor(500);
-        new SignIn().withCredentials();
+        new SignIn().withCredentials(VALID_EMAIL, VALID_PASSWORD);
         waitFor(500);
         new Home(); //check if home is displayed
     }
-
 }
