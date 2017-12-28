@@ -30,7 +30,7 @@ public class CustomAssertions {
                         childAtPosition(
                                 allOf(withId(R.id.taskList),
                                         childAtPosition(
-                                                withId(R.id.todoList),
+                                                withId(R.id.to_do_list),
                                                 0)),
                                 1),
                         isDisplayed()));
